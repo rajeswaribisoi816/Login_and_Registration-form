@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <% if(typeof errors != 'undefined') { %> 
+            <% errors.forEach(function(error) { %>
+            <div class="alert">
+             <%= error.msg %>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          </div>
+          <% }) %>
+          <% } %>
+          <% if(success_msg != ''){ %>
+            <div class="alert">
+              <%= success_msg %>
+              <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+              </button>
+            </div>
+            <% } %> <% if(error_msg != ''){ %>
+              <div class="alert">
+              <%= error_msg %>
+              <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+              </button>
+            </div>
+            <% } %>
+            <% if(error != ''){ %>
+              <div class="alert">
+                <%= error %>
+                <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+                </button>
+              </div>
+              <% } %>
+              <form action="/login" method="POST">
+                  <div class="form-group">
+                    <label>EMAIL:</label>
+                    <input type="email" id="email" placeholder="enter your name" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label>PASSWORD:</label>
+                    <input type="password" id="password" placeholder="enter your password" name="password" required>
+                  </div>
+                  <div>
+                    <input type="submit" value="login">
+                    <a href="/register">Register</a>
+                  </div>
+                </form>
+    </body>   
+</html>
+
